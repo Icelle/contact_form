@@ -1,0 +1,35 @@
+<h1>Listing Inquiries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Email</th>
+      <th>Subject</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @inquiries.each do |inquiry| %>
+      <tr>
+        <td><%= inquiry.first_name %></td>
+        <td><%= inquiry.last_name %></td>
+        <td><%= inquiry.email %></td>
+        <td><%= inquiry.subject %></td>
+        <td><%= inquiry.description %></td>
+        <td><%= link_to 'Show', inquiry %></td>
+        <td><%= link_to 'Edit', edit_inquiry_path(inquiry) %></td>
+        <td><%= link_to 'Delete', inquiry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Inquiry', new_inquiry_path %>
